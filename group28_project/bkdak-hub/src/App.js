@@ -8,18 +8,33 @@ import Home from './components/Home';
 import PropsRoute from './routing/PropsRoute';
 import GuardedRoute from './routing/GuardedRoute';
 
-function App(){
-  return (
-    <div>
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-        <Route path="/" element={<Home />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
-    
-  );
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: null,
+      loading: true,
+      role: '',
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+      
+    );
+  }
+  
 }
 
 export default App;
