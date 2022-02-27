@@ -1,26 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { render } from "react-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-//import './components/Home';
-// comment
-function App() {
+import 'bootstrap/dist/css/bootstrap.css';
+import Nav from './components/Nav';
+import Home from './components/Home';
+import PropsRoute from './routing/PropsRoute';
+import GuardedRoute from './routing/GuardedRoute';
+
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          blahhh <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+        <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
+    
   );
 }
-// kait comment
+
 export default App;
