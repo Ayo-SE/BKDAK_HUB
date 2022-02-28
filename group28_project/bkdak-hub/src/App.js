@@ -13,7 +13,7 @@ import GuardedRoute from './routing/GuardedRoute';
 // const db = Firebase.instance().db;
 
 class App extends Component {
-
+// edits
   constructor(props) {
     super(props);
 
