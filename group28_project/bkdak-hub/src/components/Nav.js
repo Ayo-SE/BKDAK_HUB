@@ -22,6 +22,7 @@ export default class Nav extends Component {
     //     }
     //   }
 
+
     renderLogin() {
     if(this.props.user){return;}
     return <button className="btn btn-primary me-3" type="submit">
@@ -86,7 +87,9 @@ export default class Nav extends Component {
                         <div className="infinite-pad">
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button className="btn btn-outline-success" type="submit">Search</button>
+                                <Link className="p-2 nav-link" to="/search-results" style={{ textDecoration: 'none' }}>
+                                    <button className="btn btn-outline-success" type="submit">Search</button>
+                                </Link>
                             </form>
                         </div>
                         <div className="pe-3">
