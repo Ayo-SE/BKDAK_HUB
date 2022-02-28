@@ -64,22 +64,22 @@ export default class Nav extends Component {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="p-2 nav-link" to="/" style={{ textDecoration: 'none' }}>
-                                Filler{' '}
+                                Home{' '}
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="p-2 nav-link" to="/about" style={{ textDecoration: 'none' }}>
-                                Filler{' '}
+                                <Link className="p-2 nav-link" to="/genres" style={{ textDecoration: 'none' }}>
+                                Genres{' '}
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="p-2 nav-link" to="/product" style={{ textDecoration: 'none' }}>
-                                Filler{' '}
+                                <Link className="p-2 nav-link" to="/popular" style={{ textDecoration: 'none' }}>
+                                Popular{' '}
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="p-2 nav-link" to="/resources" style={{ textDecoration: 'none' }}>
-                                Filler{' '}
+                                <Link className="p-2 nav-link" to="/help" style={{ textDecoration: 'none' }}>
+                                Help{' '}
                                 </Link>
                             </li>
                         </ul>
