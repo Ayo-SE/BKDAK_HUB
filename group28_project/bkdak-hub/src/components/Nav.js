@@ -3,6 +3,8 @@ THIS CODE IS FOR THE NAVIGATION BAR ATOP ALL THE PAGES OF THE APP*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
+// import Firebase from '../firebase/firebase';
+// const auth = Firebase.instance().auth;
 
 export default class Nav extends Component {
     constructor(props) {
@@ -12,14 +14,22 @@ export default class Nav extends Component {
         };
     }
 
+    // async logout() {
+    //     try {
+    //       await auth.signOut();
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   }
+
     renderLogin() {
-        if(this.props.user){return;}
-        return <button className="btn btn-primary me-3" type="submit">
-                    <Link className="p-2 nav-link" to="/login" style={{ textDecoration: 'none' }}>
-                        Login{' '}
-                    </Link>
-                </button>
-        }
+    if(this.props.user){return;}
+    return <button className="btn btn-primary me-3" type="submit">
+                <Link className="p-2 nav-link" to="/login" style={{ textDecoration: 'none' }}>
+                    Login{' '}
+                </Link>
+            </button>
+    }
     
     renderRegister() {
     if(this.props.user){return;}
@@ -37,8 +47,8 @@ export default class Nav extends Component {
 
     render() {
         return (
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="container-fluid">
                     <button
                         className="navbar-toggler"
                         type="button"
