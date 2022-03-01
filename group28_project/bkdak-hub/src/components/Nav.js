@@ -3,8 +3,8 @@ THIS CODE IS FOR THE NAVIGATION BAR ATOP ALL THE PAGES OF THE APP*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
-// import Firebase from '../firebase/firebase';
-// const auth = Firebase.instance().auth;
+import Firebase from '../firebase/firebase';
+const auth = Firebase.instance().auth;
 
 export default class Nav extends Component {
     constructor(props) {
@@ -14,13 +14,13 @@ export default class Nav extends Component {
         };
     }
 
-    // async logout() {
-    //     try {
-    //       await auth.signOut();
-    //     } catch (err) {
-    //       console.log(err);
-    //     }
-    //   }
+    async logout() {
+        try {
+          await auth.signOut();
+        } catch (err) {
+          console.log(err);
+        }
+      }
 
 
     renderLogin() {

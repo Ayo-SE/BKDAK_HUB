@@ -5,13 +5,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from './components/Nav';
 import Home from './components/Home';
-// import Firebase from './firebase/firebase';
+import Firebase from './firebase/firebase';
 import PropsRoute from './routing/PropsRoute';
 import GuardedRoute from './routing/GuardedRoute';
 import Login from './components/Login';
 
-// const auth = Firebase.instance().auth;
-// const db = Firebase.instance().db;
+const auth = Firebase.instance().auth;
+const db = Firebase.instance().db;
 
 class App extends Component {
 // edits
@@ -24,27 +24,28 @@ class App extends Component {
       role: '',
     };
   }
-  // componentDidMount() {
-  //   auth.onAuthStateChanged((user) => {
-  //     this.setState({ user: user, loading: false });
-  //     if (user !== null) {
-  //       this.getUserRole(user.uid);
-  //     }
-  //   });
-  // }
 
-  // async getUserRole(userUid) {
-  //   const snap = await db.collection('user-roles').where('userId', '==', userUid).get();
-  //   snap.forEach((doc) => {
-  //     const role = doc.data().role;
-  //     this.setState({
-  //       role: role,
-  //     });
-  //   });
-  // }
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      this.setState({ user: user, loading: false });
+      if (user !== null) {
+        this.getUserRole(user.uid);
+      }
+    });
+  }
+
+  async getUserRole(userUid) {
+    const snap = await db.collection('user-roles').where('userId', '==', userUid).get();
+    snap.forEach((doc) => {
+      const role = doc.data().role;
+      this.setState({
+        role: role,
+      });
+    });
+  }
 
   render() {
-    // const { user, role, loading } = this.state;
+    const { user, role, loading } = this.state;
     return (
       <div>
         <BrowserRouter>
