@@ -8,6 +8,7 @@ import Home from './components/Home';
 // import Firebase from './firebase/firebase';
 import PropsRoute from './routing/PropsRoute';
 import GuardedRoute from './routing/GuardedRoute';
+import Login from './components/Login';
 
 // const auth = Firebase.instance().auth;
 // const db = Firebase.instance().db;
@@ -50,12 +51,15 @@ class App extends Component {
           <Nav />
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route path1="/Login" element={<Login />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
       
     );
   }
+
+  
   
 }
 
