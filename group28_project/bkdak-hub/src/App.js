@@ -51,7 +51,7 @@ class App extends Component {
           <Nav />
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path1="/Login" element={<Login />}></Route>
+            <Route path="/login" element={<Login />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
