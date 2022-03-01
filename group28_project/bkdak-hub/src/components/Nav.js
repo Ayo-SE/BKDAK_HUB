@@ -26,7 +26,7 @@ export default class Nav extends Component {
     renderLogin() {
     if(this.props.user){return;}
     return <button className="btn btn-primary me-3" type="submit">
-                <Link className="p-2 nav-link" to="/Login" style={{ textDecoration: 'none' }}>
+                <Link className="p-2 nav-link" to="/login" style={{ textDecoration: 'none' }}>
                     Login{' '}
                 </Link>
             </button>
