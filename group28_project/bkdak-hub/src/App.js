@@ -10,6 +10,7 @@ import PropsRoute from './routing/PropsRoute';
 import GuardedRoute from './routing/GuardedRoute';
 import Login from './components/login/Login';
 import Register from './components/login/Register';
+import Sidebar from './components/Sidebar';
 
 const auth = Firebase.instance().auth;
 const db = Firebase.instance().db;
