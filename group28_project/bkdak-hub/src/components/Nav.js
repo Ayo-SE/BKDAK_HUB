@@ -2,6 +2,7 @@
 THIS CODE IS FOR THE NAVIGATION BAR ATOP ALL THE PAGES OF THE APP*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import logo from './images/bkdak-logo.png';
 import './Nav.css';
 import Firebase from '../firebase/firebase';
 const auth = Firebase.instance().auth;
@@ -48,8 +49,11 @@ export default class Nav extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark nav-color">
                 <div className="container-fluid">
+                    <Link to="/">
+                        <img src={logo} alt="bkdak-logo" className='logo-size2'></img>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -61,7 +65,8 @@ export default class Nav extends Component {
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <div className="collapse navbar-collapse div-pad" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="p-2 nav-link" to="/" style={{ textDecoration: 'none' }}>

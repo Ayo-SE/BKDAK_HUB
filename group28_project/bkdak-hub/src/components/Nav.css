@@ -9,3 +9,26 @@
 .infinite-pad {
   padding-right: 430px;
 }
+
+.div-pad {
+  padding-left: 7px;
+}
+
+.logo-size {
+  width: 200%;
+  height: 200%;
+}
+
+.logo-size2 {
+  width: 100px;
+  height: 100px;
+}
+
+.nav-color {
+  background-color: #0d0f42;
+}
+
+.div-wid {
+  width: 50px;
+  margin: auto;
+}
