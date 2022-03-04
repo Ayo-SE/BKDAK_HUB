@@ -32,3 +32,8 @@
   width: 50px;
   margin: auto;
 }
+
+.hub-pad {
+  padding-left: 30px;
+  padding-right: 250px;
+}
