@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
 import snap from './images/snapchat.png';
+import { Link } from 'react-router-dom';
 
 export default class Home extends Component {
   render() {
@@ -51,8 +52,15 @@ export default class Home extends Component {
         </div>
       </li>
       <li class="border-top my-3"></li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">
+          <Link className="p-2 nav-link" to="/help" style={{ textDecoration: 'none' }}>
+            Help{' '}
+          </Link>
+        </a>
+      </li>
+        
+        {/* <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
           Account
         </button>
         <div class="collapse" id="account-collapse" >
@@ -62,8 +70,8 @@ export default class Home extends Component {
             <li><a href="#" class="link-dark rounded">Settings</a></li>
             <li><a href="#" class="link-dark rounded">Sign out</a></li>
           </ul>
-        </div>
-      </li>
+        </div> */}
+      
     </ul>
   </div>
         </div>
