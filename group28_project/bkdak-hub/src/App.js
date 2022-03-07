@@ -11,6 +11,7 @@ import GuardedRoute from './routing/GuardedRoute';
 import Login from './components/login/Login';
 import Register from './components/login/Register';
 import Sidebar from './components/Sidebar';
+import Help from './components/Help/Help'
 
 const auth = Firebase.instance().auth;
 const db = Firebase.instance().db;
@@ -56,6 +57,7 @@ class App extends Component {
             <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
+            <Route path="/help" element={<Help />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
