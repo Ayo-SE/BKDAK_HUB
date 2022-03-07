@@ -2,7 +2,7 @@
 PURPOSE OF THIS PAGE:
 this code is for the login page on the website and handles the login of all users
  */
-
+//this is the login page
 import React, { Component } from 'react'
 import './styles.css';
 import Firebase from '../../firebase/firebase';
