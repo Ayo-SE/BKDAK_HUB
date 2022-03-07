@@ -9,9 +9,9 @@ export default class Home extends Component {
       <div className='back-color'>
         <div className='sidenav'>
           <div class="flex-shrink-0 p-3 bg-white">
-            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+            {/* <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
               <span class="fs-5 fw-semibold">Collapsible</span>
-            </a>
+            </a> */}
             <ul class="list-unstyled ps-0">
               <li class="mb-1">
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
