@@ -19,15 +19,15 @@ export default class Home extends Component {
         </button>
         <div class="collapse" id="home-collapse" >
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Updates</a></li>
-            <li><a href="#" class="link-dark rounded">Reports</a></li>
+            <li><a href="#" class="link-dark rounded">Featured</a></li>
+            <li><a href="#" class="link-dark rounded">Popular</a></li>
+            <li><a href="#" class="link-dark rounded">Recommended For You</a></li>
           </ul>
         </div>
       </li>
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Dashboard
+          Genres
         </button>
         <div class="collapse" id="dashboard-collapse" >
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -40,7 +40,7 @@ export default class Home extends Component {
       </li>
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          Orders
+          Account
         </button>
         <div class="collapse" id="orders-collapse" >
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
