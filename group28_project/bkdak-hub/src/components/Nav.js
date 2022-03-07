@@ -67,7 +67,7 @@ export default class Nav extends Component {
                     </button>
 
                     <div className="collapse navbar-collapse div-pad" id="navbarSupportedContent">
-                        {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        {<ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="p-2 nav-link" to="/" style={{ textDecoration: 'none' }}>
                                 Home{' '}
@@ -88,7 +88,7 @@ export default class Nav extends Component {
                                 Help{' '}
                                 </Link>
                             </li>
-                        </ul> */}
+                        </ul> }
                         <div className='hub-pad'>
                             <h1 style={{color: "#E4DFBF"}}>The Hub</h1>
                         </div>

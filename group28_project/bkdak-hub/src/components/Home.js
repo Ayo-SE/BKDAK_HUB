@@ -56,6 +56,7 @@ export default class Home extends Component {
         <a href="#" class="nav-link active" aria-current="page">
           <Link className="p-2 nav-link" to="/help" style={{ textDecoration: 'none' }}>
             Help{' '}
+    
           </Link>
         </a>
       </li>
