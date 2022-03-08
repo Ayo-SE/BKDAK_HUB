@@ -88,13 +88,13 @@ export default class Nav extends Component {
                                 Help{' '}
                                 </Link>
                             </li>
-                        </ul> */}
+                        </ul>  */}
                         <div className='hub-pad'>
                             <h1 style={{color: "#E4DFBF"}}>The Hub</h1>
                         </div>
                         <div className="infinite-pad">
                             <form className="d-flex">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <input className="form-control me-2" type="search" placeholder="Search for Apps & Games" aria-label="Search" style={{ width: '250px' }}/>
                                 <Link className="p-2 nav-link" to="/search-results" style={{ textDecoration: 'none' }}>
                                     <button className="btn btn-outline-success" type="submit">Search</button>
                                 </Link>
