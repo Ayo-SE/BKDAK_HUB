@@ -90,7 +90,11 @@ export default class Nav extends Component {
                             </li>
                         </ul>  */}
                         <div className='hub-pad'>
-                            <h1 style={{color: "#E4DFBF"}}>The Hub</h1>
+                            <h1 style={{color: "#E4DFBF"}}>
+                                {/* <Link to='/'> */}
+                                    The Hub
+                                {/* </Link> */}
+                            </h1>
                         </div>
                         <div className="infinite-pad">
                             <form className="d-flex">
