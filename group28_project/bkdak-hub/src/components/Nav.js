@@ -44,7 +44,13 @@ export default class Nav extends Component {
 
     renderLogout() {
         if (!this.props.user) { return; }
-        return <div onClick={()=> this.logout()} className="btn btn-primary">Logout</div>
+        // return <div onClick={()=> this.logout()} className="btn btn-primary">
+        return <button onClick={()=> this.logout()} className="btn btn-primary ml-3" type="submit">
+            <Link className="p-2 nav-link" to="/" style={{ textDecoration: 'none' }}>
+                Logout{' '}
+            </Link>
+        </button>
+            
     }
 
     render() {
