@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Firebase from './firebase/firebase';
-import PropsRoute from './routing/PropsRoute';
-import GuardedRoute from './routing/GuardedRoute';
 import Login from './components/login/Login';
 import Register from './components/login/Register';
-import Sidebar from './components/Sidebar';
-import Help from './components/Help/Help'
+import PropsRoute from './components/routing/PropsRoute';
+import Help from './components/Help';
+import GuardedRoute from './components/routing/GuardedRoute';
 
 const auth = Firebase.instance().auth;
 const db = Firebase.instance().db;
 
 class App extends Component {
-// edits
   constructor(props) {
     super(props);
 
@@ -51,22 +48,20 @@ class App extends Component {
     const { user, role, loading } = this.state;
     return (
       <div>
-        <BrowserRouter>
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="/help" element={<Help />}></Route>
-          </Routes>
-        </BrowserRouter>
+        {loading ? (
+          <div>Loading</div>
+        ) : (
+          <BrowserRouter>
+              <Nav user={user} />
+              <Route path="/" exact component={Home} />
+              <PropsRoute path="/login" exact component={Login} user={user} />
+              <PropsRoute path="/register" exact component={Register} user={user} />
+              <Route path="/help" exact component={Help} />
+          </BrowserRouter>
+        )}
       </div>
-      
     );
   }
-
-  
-  
 }
 
 export default App;

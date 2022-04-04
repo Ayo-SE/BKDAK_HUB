@@ -32,7 +32,7 @@ export default class Login extends Component {
             
     onPasswordChanged(e){
         this.setState({
-            password: e.target.value
+            password: e.target.value,
         });
     }
     
@@ -43,7 +43,7 @@ export default class Login extends Component {
         try{
             const {email, password } = this.state;
             await auth.signInWithEmailAndPassword(email,password);
-            this.props.history.push('/doctor-portal');
+            this.props.history.push('/account');
 
         }catch(err){
             this.setState({ error: err.message });
