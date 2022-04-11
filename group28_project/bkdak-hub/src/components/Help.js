@@ -6,15 +6,15 @@ export default class Help extends Component {
     return (
 
 
-        <div class ="general">
-            <div class="menu"> 
-                <a href="#BKDAK Inc"> BKDAK Inc. </a>
+        <div className ="general">
+            <div className="menu"> 
+                <a href="#BKDAK Inc"> BKDAK LLC. </a>
                 <a href="#mission"> Mission  </a>
                 <a href="#Contact"> Contact </a>
                 <a href="#Support"> Support </a>
             </div> 
 
-            <div class="body"> 
+            <div className="body"> 
                 <div>
                     <h2 id= "BKDAK Inc"> BKDAK Inc.</h2>
                     <hr></hr>

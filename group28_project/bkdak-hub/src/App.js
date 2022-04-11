@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from './components/Nav';
 import Home from './components/Home';
+import Account from './components/Account';
 import Firebase from './firebase/firebase';
 import Login from './components/login/Login';
 import Register from './components/login/Register';
@@ -54,6 +55,7 @@ class App extends Component {
           <BrowserRouter>
               <Nav user={user} />
               <Route path="/" exact component={Home} />
+              <Route path="/account" exact component={Account} />
               <PropsRoute path="/login" exact component={Login} user={user} />
               <PropsRoute path="/register" exact component={Register} user={user} />
               <Route path="/help" exact component={Help} />
