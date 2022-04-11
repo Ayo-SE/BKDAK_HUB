@@ -3,6 +3,7 @@ import './Home.css';
 import snap from './images/snapchat.png';
 import insta from './images/Instagram_icon.png';
 import lyft from './images/lyft.png';
+import uber from './images/uber.png';
 
 import { Link } from 'react-router-dom';
 
@@ -94,7 +95,7 @@ export default class Home extends Component {
                 <img src={insta} class="card-img-top" alt="instagram-image"></img>
                   <div className='card-body'>
                     <h5 className="card-title">Instagram</h5>
-                    <p class="card-text">Instagram is a fast and fun way to share the moment with your friends and family.</p>
+                    <p class="card-text">Instagram (from Facebook) allows you to create and share your photos, stories, and videos with the friends and followers you care about.</p>
                     <div className='d-flex justify-content-evenly'>
                       <a href="#" class="btn btn-primary">Share</a>
                       <a href="#" class="btn btn-primary">Review</a>
@@ -106,7 +107,7 @@ export default class Home extends Component {
               <img src={lyft} class="card-img-top" alt="lyft-image"></img>
                   <div className='card-body'>
                     <h5 className="card-title">Lyft</h5>
-                    <p class="card-text">Lyft is... </p>
+                    <p class="card-text">Count on Lyft to take you where you need to go with safety first. If it gets you there, it’s on the app.</p>
                     <div className='d-flex justify-content-evenly'>
                       <a href="#" class="btn btn-primary">Share</a>
                       <a href="#" class="btn btn-primary">Review</a>
@@ -115,10 +116,15 @@ export default class Home extends Component {
               </div>
 
               <div className='card' style={{width: "16rem"}}>
-                <div className='card-body'>
-                  <h5 className="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+              <img src={uber} class="card-img-top" alt="lyft-image"></img>
+                  <div className='card-body'>
+                    <h5 className="card-title">Uber</h5>
+                    <p class="card-text">We’re committed to your safety at Uber. We’ve established a Door-to-Door Safety Standard to help you feel safe every time you ride.</p>
+                    <div className='d-flex justify-content-evenly'>
+                      <a href="#" class="btn btn-primary">Share</a>
+                      <a href="#" class="btn btn-primary">Review</a>
+                    </div>
+                  </div>
               </div>
 
             </div>
