@@ -88,7 +88,7 @@ export default class Home extends Component {
           <div className='top-pads'>
             <div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">
+                <li class="list-group-item pb-4 pt-4" id='l1'>
                     <div className='d-flex justify-content-around'>
                       <div className='card' style={{width: "16rem"}}>
                         <img src={snap} class="card-img-top" alt="snapchat-image"></img>
@@ -140,7 +140,7 @@ export default class Home extends Component {
 
                     </div>
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item pt-4 pb-4" id='l2'>
                     <div className='d-flex justify-content-around'>
                       <div className='card' style={{width: "16rem"}}>
                         <img src={crush} class="card-img-top" alt="candy_crush-image"></img>
@@ -192,7 +192,7 @@ export default class Home extends Component {
 
                     </div>
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item pt-4 pb-4" id='l3'>
                     <div className='d-flex justify-content-around'>
                       <div className='card' style={{width: "16rem"}}>
                         <img src={netflix} class="card-img-top" alt="netflix-image"></img>
