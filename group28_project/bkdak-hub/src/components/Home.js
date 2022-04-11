@@ -16,7 +16,6 @@ export default class Home extends Component {
             {/* <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
               <span class="fs-5 fw-semibold">Collapsible</span>
             </a> */}
-            // test
             <ul class="list-unstyled ps-0">
               <li class="mb-1">
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
