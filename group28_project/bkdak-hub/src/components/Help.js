@@ -5,8 +5,10 @@ export default class Help extends Component {
   render() {
     return (
 
-
+        
         <div className ="general">
+            // Side bar that allows users to navigate to a spcific 
+            // section on the healp page 
             <div className="menu"> 
                 <a href="#BKDAK Inc"> BKDAK LLC. </a>
                 <a href="#mission"> Mission  </a>
@@ -18,7 +20,8 @@ export default class Help extends Component {
                 <div>
                     <h2 id= "BKDAK Inc"> BKDAK Inc.</h2>
                     <hr></hr>
-
+                     
+                    // Brief statement about the history of the company 
                     <p> Who are we? We are a small company founded in 2017 in Chicago Illinois. We strive in creating efficient 
                     software that meets our all of our customers needs and wants. Our mission, Spirit, values and behavior 
                     are what separates us from other companies. We are committed to building and cultivating postive, long
@@ -30,18 +33,18 @@ export default class Help extends Component {
                     <h2 id="mission"> Mission Statement </h2>
                     <hr></hr>
 
-                    <p>  Our mission is simple: make technology an asset for your business not a problem. 
-                        Too many times we have seen other IT consulting firms recommend solutions that are not appropriate for 
-                        the specific client’s business or will not take a business’ operations into their planning as they routinely 
-                        bring down an entire business while they perform routine maintenance on a server. That is unacceptable. 
-                        We won’t bring you down in the middle of the day because it is “a better time for us”. We work around your business. 
-                        We strive to make technology integrate seamlessly with your business so your business can grow. As your technology partner, 
-                        when your business grows ours will grow with you, therefore, we will work hand in hand with you to support your growth.
+                    // Our Brief mission statement 
+                    <p> Our mission here at BKDAK LLC is to make technology an asset to you not a hassle. 
+                        We strive to build the technology you deserve around your needs and remove assets that are 
+                        deemed unnecessary in your business environment. To prove to you that our software development
+                        progress is going smoothly we have a ton of information to cover and a demo of what the current 
+                        application looks like
                     </p>
 
 
                 </div>
-
+                
+                // List of contacts of all developers 
                 <div>
                     <h2 id="Contact"> Contact </h2>
                     <hr></hr>
@@ -75,6 +78,7 @@ export default class Help extends Component {
                     </p>
                 </div>
 
+                // Support contact list 
                 <div>
                     <h2 id="Support"> Support </h2>
                     <hr></hr>
@@ -98,36 +102,10 @@ export default class Help extends Component {
 
         </div>
 
-        /*
-        <div> 
-
-           
-            <div> 
-                <h2> BKDAK Inc. </h2>
-                <p>  Who are we? We are a small company founded in 2016. We strive in creating working software in all     </p> 
-
-            </div>
-            
-
-            
-            <div>
-                <h2> Contact </h2> 
-
-            </div>
-            
-
-            <div>
-                <h2> Support </h2>
-
-                
-            </div>
-
-
-
-        </div>
+        
 
         
-      */
+      
       
 
 
