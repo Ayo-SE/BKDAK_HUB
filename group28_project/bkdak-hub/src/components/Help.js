@@ -7,8 +7,8 @@ export default class Help extends Component {
 
         
         <div className ="general">
-            // Side bar that allows users to navigate to a spcific 
-            // section on the healp page 
+            {/* Side bar that allows users to navigate to a spcific 
+            section on the healp page  */}
             <div className="menu"> 
                 <a href="#BKDAK Inc"> BKDAK LLC. </a>
                 <a href="#mission"> Mission  </a>
@@ -21,7 +21,7 @@ export default class Help extends Component {
                     <h2 id= "BKDAK Inc"> BKDAK Inc.</h2>
                     <hr></hr>
                      
-                    // Brief statement about the history of the company 
+                    {/* Brief statement about the history of the company  */}
                     <p> Who are we? We are a small company founded in 2017 in Chicago Illinois. We strive in creating efficient 
                     software that meets our all of our customers needs and wants. Our mission, Spirit, values and behavior 
                     are what separates us from other companies. We are committed to building and cultivating postive, long
@@ -33,7 +33,7 @@ export default class Help extends Component {
                     <h2 id="mission"> Mission Statement </h2>
                     <hr></hr>
 
-                    // Our Brief mission statement 
+                    {/* Our Brief mission statement  */}
                     <p> Our mission here at BKDAK LLC is to make technology an asset to you not a hassle. 
                         We strive to build the technology you deserve around your needs and remove assets that are 
                         deemed unnecessary in your business environment. To prove to you that our software development
@@ -44,7 +44,7 @@ export default class Help extends Component {
 
                 </div>
                 
-                // List of contacts of all developers 
+                {/* List of contacts of all developers  */}
                 <div>
                     <h2 id="Contact"> Contact </h2>
                     <hr></hr>
@@ -78,7 +78,7 @@ export default class Help extends Component {
                     </p>
                 </div>
 
-                // Support contact list 
+                {/* Support contact list  */}
                 <div>
                     <h2 id="Support"> Support </h2>
                     <hr></hr>
