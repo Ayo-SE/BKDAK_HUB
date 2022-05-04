@@ -25,6 +25,7 @@ export default class Home extends Component {
       super(props);
       this.state = {
           user: null,
+          review: "",
           downloads: 0,
       };
   }
@@ -38,6 +39,16 @@ export default class Home extends Component {
     });
   }
 
+  async getAppReview(appName) {
+    const snap = await db.collection('apps').where('name', '==', appName).get();
+    snap.forEach((doc) => {
+      const review = doc.data().review;
+      this.setState({
+        review: review,
+      });
+    });
+  }
+
   async getDownloaded(userUid) {
     const snap = await db.collection('users').where('userId', '==', userUid).get();
     snap.forEach((doc) => {
@@ -48,13 +59,11 @@ export default class Home extends Component {
     });
   }
 
-  async updateDownload(e) {
-    e.preventDefault();
-
+  async updateDownload(downloads) {
     try {
       if (this.state.role === 'users') {
         await this.db.collection('users').doc().set({
-          downloads: this.state.downloads + 1,
+          downloads: downloads + 1,
         })
       }
     } catch(err) {
@@ -64,13 +73,11 @@ export default class Home extends Component {
 
 
   render() {
+    const {downloads, review} = this.state;
     return (
       <div className='back-color'>
         <div className='sidenav'>
           <div className="flex-shrink-0 p-3 bg-white">
-            {/* <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-              <span class="fs-5 fw-semibold">Collapsible</span>
-            </a> */}
             <ul className="list-unstyled ps-0">
               <li className="mb-1">
                 <button className="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
@@ -102,30 +109,10 @@ export default class Home extends Component {
                   Account{' '}
                 </Link>
               </li>
-              <li className="mb-1">
-                {/* <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false"> */}
-                  <Link className="" to="/help">
+              <li className="mb-1"><Link className="" to="/help">
                     Help{' '}
                   </Link>
-                {/* </button> */}
               </li>
-              {/* <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
-                  
-                </a>
-              </li> */}
-                
-                {/* <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                  Account
-                </button>
-                <div class="collapse" id="account-collapse" >
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark rounded">New...</a></li>
-                    <li><a href="#" class="link-dark rounded">Profile</a></li>
-                    <li><a href="#" class="link-dark rounded">Settings</a></li>
-                    <li><a href="#" class="link-dark rounded">Sign out</a></li>
-                  </ul>
-                </div> */}
               
             </ul>
           </div>
@@ -144,10 +131,30 @@ export default class Home extends Component {
                           <p className="card-text">Snapchat is a fast and fun way to share the moment with your friends and family.</p>
                           <div className='d-flex justify-content-evenly'>
                             {/* <form onSubmit={(e) => this.updateDownload(e)}> */}
-                              <a href="https://play.google.com/store/apps/details?id=com.snapchat.android&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.snapchat.android&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary" onClick={this.updateDownload({downloads})}>Download</a>
                             {/* </form> */}
                             
-                            <a href="#" className="btn btn-primary">Reviews</a>
+                            {/* <a href="#" className="btn btn-primary" >Reviews</a> */}
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Reviews
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Snapchat Review</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    "I love snap chat, but lately it keeps shutting down for no reason. Can't open any messages or take any pictures because the app is immediately crashing. Another problem is that when I'm recording a video, the recording stops after a few seconds. Hopefully theee problems can be fixed. I am unable to access any features of this app at the moment."
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -159,7 +166,25 @@ export default class Home extends Component {
                             <p className="card-text">Instagram (from Facebook) allows you to create and share your photos, stories, and videos with the friends and followers you care about.</p>
                             <div className='d-flex justify-content-evenly'>
                               <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Reviews</a>
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Reviews
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Instagram Review</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                  "There's this strange bug that's been happening recently where when I get off of my data and move back to my home wifi at the end of the day, Insta just stops working. It doesn't happen on my iPad, just my phone. For some reason when I return to my wifi, insta won't load posts of any kind, the pfps of anyone I follow, and it refuses to send any messages I try to type. The only way I have found to fix it is to delete the app and then reinstall it. Hope this gets fixed soon."
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                             </div>
                           </div>
                       </div>
@@ -171,7 +196,25 @@ export default class Home extends Component {
                             <p className="card-text">Count on Lyft to take you where you need to go with safety first. If it gets you there, it’s on the app.</p>
                             <div className='d-flex justify-content-evenly'>
                               <a href="https://play.google.com/store/apps/details?id=me.lyft.android&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Reviews</a>
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Reviews
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Lyft Review</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    "Beware! Pricing is not accurate! The app functions well enough and is easy to use, but if you use be sure to take screen captures of the prices offered for rides because sometimes the price actually charged ends up being two or three times the original price cited, and the built-in feature to dispute the fare is pointless."
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                             </div>
                           </div>
                       </div>
@@ -183,7 +226,25 @@ export default class Home extends Component {
                             <p className="card-text">We’re committed to your safety at Uber. We’ve established a Door-to-Door Safety Standard to help you feel safe every time you ride.</p>
                             <div className='d-flex justify-content-evenly'>
                               <a href="https://play.google.com/store/apps/details?id=com.ubercab&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Reviews</a>
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Reviews
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Uber Review</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    "For the most part I've not had major issues w/the app & most drivers are great. But I mistakenly billed an old company card because the app reset it as my default biz profile payment & still won't let me delete the old credit card after weeks of trying (so, it's likely it may happen again). 🤦🏾‍♀️ Making it all the more frustrating is the lack of an actual customer svc team to help. You can't automate everything. It will eventually impact the customer's experience negatively as it has mine."
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                             </div>
                           </div>
                       </div>
