@@ -44,7 +44,7 @@ export default class Account extends Component {
   render() {
     const {lastName, firstName, loading, downloads} = this.state;
     return (
-      <div>
+      <div style={{backgroundColor: "#E4E0C0"}} className="div-height">
         {loading == 0 ? (
           <div className='position relative div-height' style={{backgroundColor: 'black'}}>
             <div className="alert alert-danger d-flex align-items-center" role="alert">
@@ -59,9 +59,26 @@ export default class Account extends Component {
             </div>
           </div>
         ) : (
-          <div className='p-5'>
-            Welcome {firstName} {lastName} You have {downloads} downloads on your account.
-          </div>
+          <div className='container col-7 mt-2' style={{backgroundColor: "#E4E0C0"}}>
+                <div className="p-5"></div>
+                  <div className='card card-body text-center'>
+                  <div className="p-3"></div>
+                    <h1 className='h3 mt-3 text-center'>Welcome {firstName} {lastName}!</h1>  
+                    <div className='text-center mt-4'>
+                      <p class="card-text">You currently have {downloads} downloads on your account.</p>
+                      <div className="p-3"></div>
+                    </div>
+                  </div>
+            </div>
+          // <div className='p-5'>
+          //   <div class="card" style={{width: "18rem"}}>
+          //     <div class="card-body">
+          //       <h5 class="card-title">Welcome {firstName} {lastName}</h5>
+          //       <p class="card-text">You have {downloads} downloads on your account</p>
+          //     </div>
+          //   </div>
+          //   {/* Welcome {firstName} {lastName} You have {downloads} downloads on your account. */}
+          // </div>
         )}
       </div>
     )
