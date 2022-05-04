@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Firebase from '../firebase/firebase'
+import './Account.css'
 
 const auth = Firebase.instance().auth;
 const db = Firebase.instance().db;
@@ -30,25 +31,36 @@ export default class Account extends Component {
       snap.forEach((doc) => {
         const firstName = doc.data().firstName;
         const lastName = doc.data().lastName;
+        const downloads = doc.data().downloads;
         this.setState({
           firstName: firstName,
           lastName: lastName,
+          downloads: downloads,
           loading: 1,
         });
       });
     }
 
   render() {
-    const {lastName, firstName, loading} = this.state;
+    const {lastName, firstName, loading, downloads} = this.state;
     return (
       <div>
         {loading == 0 ? (
-          <div>
-            You need to log in first.
+          <div className='position relative div-height' style={{backgroundColor: 'black'}}>
+            <div className="alert alert-danger d-flex align-items-center" role="alert">
+              <div>
+                
+              <div class="position-absolute top-50 start-50 translate-middle">
+                <i className='bi bi-exclamation-triangle-fill flex-shrink-0 me-2'></i>
+                You need to log in first.
+              </div>
+                
+              </div>
+            </div>
           </div>
         ) : (
-          <div>
-            Welcome {firstName} {lastName}
+          <div className='p-5'>
+            Welcome {firstName} {lastName} You have {downloads} downloads on your account.
           </div>
         )}
       </div>

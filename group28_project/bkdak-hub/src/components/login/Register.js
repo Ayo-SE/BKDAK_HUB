@@ -64,6 +64,8 @@ export default class Register extends Component {
           userId: this.auth.currentUser.uid,
           firstName: this.state.firstName,
           lastName: this.state.lastName,
+          downloads: 0,
+          apps: '',
         });
       }
 
