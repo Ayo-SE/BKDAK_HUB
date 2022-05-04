@@ -12,13 +12,13 @@ class Firebase{
     }
     constructor(){
         this.firebase = firebase.initializeApp({
-            apiKey: "AIzaSyCNo5hbkqAhbFsjMh5oiwftbGTp3Wb16Zo",
-            authDomain: "the-hub-e587b.firebaseapp.com",
-            projectId: "the-hub-e587b",
-            storageBucket: "the-hub-e587b.appspot.com",
-            messagingSenderId: "688654399243",
-            appId: "1:688654399243:web:f2afe871e9ad9a3d85540e",
-            measurementId: "G-CC77Q0KXYZ"
+            apiKey: "AIzaSyCraBqEgHuFgOEVmgwd3zARxD24kijWxtg",
+            authDomain: "true-hub.firebaseapp.com",
+            projectId: "true-hub",
+            storageBucket: "true-hub.appspot.com",
+            messagingSenderId: "15724732298",
+            appId: "1:15724732298:web:dc7bd89913434f59c47273",
+            measurementId: "G-QWBKYWTBX7"
         });
         this.db = this.firebase.firestore();
         this.auth = this.firebase.auth();
