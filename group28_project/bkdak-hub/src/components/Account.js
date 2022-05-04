@@ -12,6 +12,7 @@ export default class Account extends Component {
             firstName: '',
             lastName: '',
             downloads: 0,
+            loading: 0,
         };
     }
 
@@ -19,12 +20,12 @@ export default class Account extends Component {
       auth.onAuthStateChanged((user) => {
         this.setState({ user: user, loading: false });
         if (user !== null) {
-          this.getUserName(user.uid);
+          this.getUserInfo(user.uid);
         }
       });
     }
 
-    async getUserName(userUid) {
+    async getUserInfo(userUid) {
       const snap = await db.collection('users').where('userId', '==', userUid).get();
       snap.forEach((doc) => {
         const firstName = doc.data().firstName;
@@ -32,17 +33,24 @@ export default class Account extends Component {
         this.setState({
           firstName: firstName,
           lastName: lastName,
+          loading: 1,
         });
       });
     }
 
   render() {
-    const {lastName, firstName} = this.state;
+    const {lastName, firstName, loading} = this.state;
     return (
       <div>
-          Account
-          {lastName}
-          {firstName}
+        {loading == 0 ? (
+          <div>
+            You need to log in first.
+          </div>
+        ) : (
+          <div>
+            Welcome {firstName} {lastName}
+          </div>
+        )}
       </div>
     )
   }
