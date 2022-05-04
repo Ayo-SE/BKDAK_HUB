@@ -13,9 +13,56 @@ import netflix from './images/netflix.png';
 import spotify from './images/spotify.png';
 import pool from './images/pool.png';
 
+import Firebase from '../firebase/firebase';
 import { Link } from 'react-router-dom';
 
+const auth = Firebase.instance().auth;
+const db = Firebase.instance().db;
+
+
 export default class Home extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+          user: null,
+          downloads: 0,
+      };
+  }
+
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      this.setState({ user: user, loading: false });
+      if (user !== null) {
+        this.getDownloaded(user.uid);
+      }
+    });
+  }
+
+  async getDownloaded(userUid) {
+    const snap = await db.collection('users').where('userId', '==', userUid).get();
+    snap.forEach((doc) => {
+      const downloads = doc.data().downloads;
+      this.setState({
+        downloads: downloads,
+      });
+    });
+  }
+
+  async updateDownload(e) {
+    e.preventDefault();
+
+    try {
+      if (this.state.role === 'users') {
+        await this.db.collection('users').doc().set({
+          downloads: this.state.downloads + 1,
+        })
+      }
+    } catch(err) {
+      this.setState({error: err.message});
+    }
+  }
+
+
   render() {
     return (
       <div className='back-color'>
@@ -96,8 +143,11 @@ export default class Home extends Component {
                           <h5 className="card-title">Snapchat</h5>
                           <p className="card-text">Snapchat is a fast and fun way to share the moment with your friends and family.</p>
                           <div className='d-flex justify-content-evenly'>
-                            <a href="#" className="btn btn-primary">Download</a>
-                            <a href="#" className="btn btn-primary">Review</a>
+                            {/* <form onSubmit={(e) => this.updateDownload(e)}> */}
+                              <a href="https://play.google.com/store/apps/details?id=com.snapchat.android&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                            {/* </form> */}
+                            
+                            <a href="#" className="btn btn-primary">Reviews</a>
                           </div>
                         </div>
                       </div>
@@ -108,8 +158,8 @@ export default class Home extends Component {
                             <h5 className="card-title">Instagram</h5>
                             <p className="card-text">Instagram (from Facebook) allows you to create and share your photos, stories, and videos with the friends and followers you care about.</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -120,8 +170,8 @@ export default class Home extends Component {
                             <h5 className="card-title">Lyft</h5>
                             <p className="card-text">Count on Lyft to take you where you need to go with safety first. If it gets you there, it’s on the app.</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=me.lyft.android&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -132,8 +182,8 @@ export default class Home extends Component {
                             <h5 className="card-title">Uber</h5>
                             <p className="card-text">We’re committed to your safety at Uber. We’ve established a Door-to-Door Safety Standard to help you feel safe every time you ride.</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.ubercab&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -148,8 +198,8 @@ export default class Home extends Component {
                           <h5 className="card-title">Candy Crush</h5>
                           <p className="card-text">Start playing Candy Crush Saga today – a legendary puzzle game loved by millions of players around the world.</p>
                           <div className='d-flex justify-content-evenly'>
-                            <a href="#" className="btn btn-primary">Download</a>
-                            <a href="#" className="btn btn-primary">Review</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                            <a href="#" className="btn btn-primary">Reviews</a>
                           </div>
                         </div>
                       </div>
@@ -160,8 +210,8 @@ export default class Home extends Component {
                             <h5 className="card-title">Facebook</h5>
                             <p className="card-text">Keeping up with friends is faster and easier than ever. Download updates and photos, engage with friends and Pages, and stay connected to communities important to you.</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.facebook.katana&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -172,8 +222,8 @@ export default class Home extends Component {
                             <h5 className="card-title">Tinder </h5>
                             <p className="card-text">🔥You can be here for a good time, and a long time, too.🔥 With 30 billion matches to date, Tinder® is the🔝 top dating app🔝, making it the place to be to meet new people.</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.tinder&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -184,8 +234,8 @@ export default class Home extends Component {
                             <h5 className="card-title">TikTok</h5>
                             <p className="card-text">TikTok is THE destination for mobile videos. On TikTok, short-form videos are exciting, spontaneous, and genuine. </p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -200,8 +250,8 @@ export default class Home extends Component {
                           <h5 className="card-title">Netflix</h5>
                           <p className="card-text">Looking for the most talked about TV shows and movies from the around the world? They’re all on Netflix. We’ve got award-winning series, movies, documentaries, and stand-up specials. </p>
                           <div className='d-flex justify-content-evenly'>
-                            <a href="#" className="btn btn-primary">Download</a>
-                            <a href="#" className="btn btn-primary">Review</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.netflix.mediaclient&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                            <a href="#" className="btn btn-primary">Reviews</a>
                           </div>
                         </div>
                       </div>
@@ -212,8 +262,8 @@ export default class Home extends Component {
                             <h5 className="card-title">Spotify</h5>
                             <p className="card-text">With Spotify, you can listen to music and play millions of songs and podcasts for free. Stream music and podcasts you love and find music - or your next favorite song - from all over the world.</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -224,8 +274,8 @@ export default class Home extends Component {
                             <h5 className="card-title">Super Mario Run</h5>
                             <p className="card-text">A new kind of Mario game that you can play with one hand. You control Mario by tapping as he constantly runs forward.  You time your taps to pull off stylish jumps, midair spins, and wall jumps to gather coins and reach the goal!</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.nintendo.zara&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
@@ -236,8 +286,8 @@ export default class Home extends Component {
                             <h5 className="card-title">8 Ball Pool</h5>
                             <p className="card-text">Do you want to play in the world of pool games? 8 Ball Pool is an addictive challenging game based on real 3D pool games, where you will challenge your friends online. Become a master of the pool!</p>
                             <div className='d-flex justify-content-evenly'>
-                              <a href="#" className="btn btn-primary">Download</a>
-                              <a href="#" className="btn btn-primary">Review</a>
+                              <a href="https://play.google.com/store/apps/details?id=com.miniclip.eightballpool&hl=en_US&gl=US" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Download</a>
+                              <a href="#" className="btn btn-primary">Reviews</a>
                             </div>
                           </div>
                       </div>
