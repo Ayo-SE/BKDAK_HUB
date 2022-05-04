@@ -1,3 +1,8 @@
+/*
+PURPOSE OF THIS PAGE:
+This page is for allowing users to see account information associated with their account (if available)
+ */
+
 import React, { Component } from 'react'
 import Firebase from '../firebase/firebase'
 import './Account.css'

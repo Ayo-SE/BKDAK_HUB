@@ -1,5 +1,6 @@
 /* PURPOSE OF THIS PAGE:
-THIS CODE IS FOR THE NAVIGATION BAR ATOP ALL THE PAGES OF THE APP*/
+THIS CODE IS FOR THE NAVIGATION BAR ATOP ALL THE PAGES OF THE APP
+*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './images/bkdak-logo.png';

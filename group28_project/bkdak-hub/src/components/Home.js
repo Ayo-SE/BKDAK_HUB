@@ -1,3 +1,7 @@
+/*
+PURPOSE OF THIS PAGE:
+This is the code for the home page of our website, it displays all the apps we have listed and the side nav on the home page
+ */
 import React, { Component } from 'react';
 import './Home.css';
 import snap from './images/snapchat.png';

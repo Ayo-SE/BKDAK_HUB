@@ -1,3 +1,8 @@
+/*
+PURPOSE OF THIS PAGE:
+This page serves as the register page for users to register with "The Hub"
+ */
+
 import React, { Component } from 'react';
 import './styles.css';
 import Firebase from '../../firebase/firebase';

@@ -1,3 +1,8 @@
+/*
+PURPOSE OF THIS PAGE:
+This page ties in the firebase database into the project to be used in conjunction with everything that is database related.
+*/
+
 import firebase from "firebase";
 import 'firebase/auth'
 import 'firebase/firestore'

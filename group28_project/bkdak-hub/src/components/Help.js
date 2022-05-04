@@ -1,3 +1,8 @@
+/*
+PURPOSE OF THIS PAGE:
+The code on this page is for the help page for "The Hub", it lists our mission satement, contact information, and support information.
+*/
+
 import React, { Component } from 'react'
 import './Help.css';
 

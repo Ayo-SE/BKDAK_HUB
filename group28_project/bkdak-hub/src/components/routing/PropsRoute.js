@@ -1,3 +1,8 @@
+/*
+PURPOSE OF THIS PAGE:
+This code handles routing so that pages will have continuity in regards to database connections.
+*/
+
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom';
 

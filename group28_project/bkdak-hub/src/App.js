@@ -1,3 +1,8 @@
+/*
+PURPOSE OF THIS PAGE:
+This page compiles all other javascript files onto one page from which it the web application is run
+ */
+
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
